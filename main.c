@@ -9,6 +9,10 @@ int sum(int a, int b) {
     return a + b;
 }
 
+int square(int a) {
+    return a*a;
+}
+
 int main() {
     int num1, num2, result, op;
     
@@ -19,18 +23,26 @@ int main() {
     scanf("%d", &num2);
     
 
-    printf("0 - sum\n1 - sub\nwhats the operation?:");
+    printf("0 - sum\n1 - sub\n2 - square of first\nwhats the operation?:");
     scanf("%d",&op);
 
-    if(op){
-        result = sub(num1, num2);
 
-    } else{
-        result = sum(num1, num2);
-
-    };
+    switch (op) {
+        case 0:
+            result = sum(num1, num2);
+            break;
+        case 1:
+            result = sub(num1, num2);
+            break;
+        case 2:
+            result = square(num1);
+            break;
+        default:
+            printf("Invalid operation\n");
+            return 1;
+    }
     
-    printf("Sum: %d\n", result);
+    printf("Result: %d\n", result);
     
     return 0;
 }
